@@ -1,0 +1,671 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Opportunity — brandhub (Strategy)</title><script>
+/* brandhub null-safety shim — prevents crashes from removed sections */
+(function(){
+  var _orig = document.getElementById.bind(document);
+  var _dummy = null;
+  function getDummy(){
+    if(!_dummy){
+      _dummy = document.createElement('div');
+      _dummy.style.display='none';
+      _dummy.className='__bh-dummy';
+      _dummy.textContent=''; _dummy.innerHTML=''; _dummy.value='0';
+      _dummy.checked=false; _dummy.dataset={};
+      _dummy.querySelector=function(){return getDummy();};
+      _dummy.querySelectorAll=function(){return [];};
+      _dummy.addEventListener=function(){};
+      _dummy.removeEventListener=function(){};
+      _dummy.getBoundingClientRect=function(){return {top:0,right:0,bottom:0,left:0,width:0,height:0,x:0,y:0};};
+    }
+    return _dummy;
+  }
+  document.getElementById=function(id){ return _orig(id)||getDummy(); };
+})();
+</script>
+<style>
+/* CSS from brandhub (Strategy) */
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue: #30B4E6;
+            --orange: #FF9119;
+            --purple: #9B6FE8;
+            --bg: #090C1C;
+            --surface: #0E1225;
+            --text: #EEF2F8;
+            --muted: #8898B5;
+            --border: #1A1F35;
+            --success: #00C896;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Sticky Navigation */
+        nav.sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 220px;
+            height: 100vh;
+            background-color: var(--surface);
+            border-right: 1px solid var(--border);
+            padding: 2rem 1rem;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        nav.sidebar h2 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        nav.sidebar ul {
+            list-style: none;
+        }
+
+        nav.sidebar li {
+            margin-bottom: 0.75rem;
+        }
+
+        nav.sidebar a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            border-left: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav.sidebar a:hover {
+            color: var(--blue);
+            border-left-color: var(--blue);
+            padding-left: 1rem;
+        }
+
+        nav.sidebar a.active {
+            color: var(--blue);
+            border-left-color: var(--blue);
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        main {
+            margin-left: 220px;
+            padding: 0;
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 6rem 4rem;
+            border-bottom: 1px solid var(--border);
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+        .section:nth-child(7) { animation-delay: 0.7s; }
+        .section:nth-child(8) { animation-delay: 0.8s; }
+        .section:nth-child(9) { animation-delay: 0.9s; }
+        .section:nth-child(10) { animation-delay: 1s; }
+
+        /* Header Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(48, 180, 230, 0.05) 0%, rgba(155, 111, 232, 0.05) 100%);
+        }
+
+        .hero::before {
+            content: 'INTERNAL';
+            position: absolute;
+            top: 2rem;
+            right: 4rem;
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(48, 180, 230, 0.08);
+            opacity: 0.3;
+            letter-spacing: 4px;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: rgba(255, 145, 25, 0.15);
+            border: 1px solid var(--orange);
+            color: var(--orange);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--blue), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .date-label {
+            color: var(--muted);
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--blue);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--blue);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text);
+            max-width: 800px;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background-color: rgba(48, 180, 230, 0.08);
+            border-left: 4px solid var(--blue);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .warning-box {
+            background-color: rgba(255, 145, 25, 0.08);
+            border-left: 4px solid var(--orange);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+        }
+
+        .warning-box p {
+            margin-bottom: 0;
+            font-size: 1.05rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-box {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .select-metric {
+            color: var(--blue);
+        }
+
+        .competitor-metric {
+            color: var(--muted);
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 3rem 0;
+        }
+
+        .callout {
+            display: flex;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: rgba(155, 111, 232, 0.08);
+            border: 1px solid rgba(155, 111, 232, 0.2);
+            border-radius: 4px;
+        }
+
+        .callout-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .callout-content p {
+            margin-bottom: 0.5rem;
+        }
+
+        .list-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .list-bullet {
+            color: var(--blue);
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .scenario-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+        .scenario-table th,
+        .scenario-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .scenario-table th {
+            background-color: rgba(48, 180, 230, 0.1);
+            color: var(--blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 1px;
+        }
+
+        .scenario-table tr:hover {
+            background-color: rgba(48, 180, 230, 0.05);
+        }
+
+        .value-highlight {
+            color: var(--blue);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .value-accent {
+            color: var(--purple);
+            font-weight: 700;
+        }
+
+        .footnote {
+            font-size: 0.875rem;
+            color: var(--muted);
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-intro {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .principle-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .principle {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-top: 2px solid var(--blue);
+        }
+
+        .principle h4 {
+            margin-top: 0;
+        }
+
+        .closing-statement {
+            font-size: 1.3rem;
+            color: var(--blue);
+            font-weight: 500;
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: rgba(48, 180, 230, 0.05);
+            border-left: 4px solid var(--blue);
+            border-radius: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            nav.sidebar {
+                width: 180px;
+                padding: 1.5rem 0.75rem;
+            }
+
+            main {
+                margin-left: 180px;
+            }
+
+            .section {
+                padding: 4rem 3rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero::before {
+                font-size: 5rem;
+                right: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav.sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 1rem;
+            }
+
+            main {
+                margin-left: 0;
+            }
+
+            .section {
+                min-height: auto;
+                padding: 3rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .principle-list {
+                grid-template-columns: 1fr;
+            }
+
+            .hero::before {
+                display: none;
+            }
+        }
+
+        /* Intersection Observer for scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scroll-animate.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+.__preview-bar{position:fixed;top:0;left:0;right:0;z-index:99999;background:#0a0a0f;border-bottom:2px solid #62CFE5;padding:10px 20px;display:flex;align-items:center;gap:16px;font-family:Inter,sans-serif;font-size:13px;}
+.__preview-bar .badge{background:#62CFE522;color:#62CFE5;border:1px solid #62CFE555;border-radius:4px;padding:3px 8px;font-size:11px;font-weight:600;}
+.__preview-bar .name{color:#fff;font-weight:700;font-size:15px;}.__preview-bar .id{color:#8898B5;font-size:12px;}
+.__preview-bar a{margin-left:auto;color:#62CFE5;text-decoration:none;font-size:12px;border:1px solid #62CFE544;border-radius:4px;padding:4px 10px;}
+body{padding-top:52px;}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head><body>
+<div class="__preview-bar"><span class="badge">brandhub (Strategy)</span><span class="name">Opportunity</span><span class="id">opportunity</span><a href="../catalogue.html">← Back to Catalogue</a></div>
+<section id="opportunity" class="section">
+            <h2>The Market Opportunity</h2>
+            <p class="section-intro">Data sourced from Grant Thornton Market Study, October 2025</p>
+
+            <h3>Market Structure & Growth</h3>
+
+            <div class="highlight-box">
+                <p><strong>US POS Display Market:</strong> $16.1B (2025) → $19.0B (2030), CAGR 3.4%</p>
+            </div>
+
+            <p>The POS display market is large and growing steadily, but the growth is not explosive. That actually works in our favor: it means the market will be won by the vendor with the best product and customer relationship, not by whoever spends the most on customer acquisition.</p>
+
+            <h3>Alcohol & Beverage Segment (Our Primary Focus)</h3>
+
+            <div class="comparison-box">
+                <div class="comparison-label">Total Alc Bev POS Market</div>
+                <div class="metric select-metric">$4.6B</div>
+                <p style="font-size: 0.875rem; color: var(--muted); margin-bottom: 1rem;">15% of total alcohol marketing spend goes to point-of-sale materials</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <div class="comparison-label">Beer</div>
+                        <div class="metric" style="color: var(--blue); font-size: 1.3rem;">$1.7B</div>
+                    </div>
+                    <div>
+                        <div class="comparison-label">Spirits</div>
+                        <div class="metric" style="color: var(--blue); font-size: 1.3rem;">$1.0B</div>
+                    </div>
+                    <div>
+                        <div class="comparison-label">Wine</div>
+                        <div class="metric" style="color: var(--blue); font-size: 1.3rem;">$1.0B</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Market Dynamics</h3>
+
+            <div class="list-item">
+                <span class="list-bullet">→</span>
+                <div>
+                    <strong>Fragmented vendor base:</strong> Many small and mid-sized POS vendors, no single dominant platform. This is a "catch it while it's forming" moment.
+                </div>
+            </div>
+
+            <div class="list-item">
+                <span class="list-bullet">→</span>
+                <div>
+                    <strong>Technology adoption is immature:</strong> Clients haven't consolidated to a single platform yet. They're comparing options. The next 18 months will determine market structure for a decade.
+                </div>
+            </div>
+
+            <div class="list-item">
+                <span class="list-bullet">→</span>
+                <div>
+                    <strong>Satisfaction is low:</strong> Competitor average NPS is -24. We're at +50. This is the widest competitive moat available.
+                </div>
+            </div>
+
+            <div class="list-item">
+                <span class="list-bullet">→</span>
+                <div>
+                    <strong>Pricing power exists:</strong> Competitors charge up to 19% of POS spend. There's clearly value. The question is whether we capture it ethically and sustainably.
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>The Funnel (Simplified)</h3>
+            <p>From the GT Study: Alcohol & beverage is a $1.79T category (retail + on-premise). Of that, ~$120.6B goes to marketing. Of that, ~$16.1B goes to POS display (which includes beer, spirits, wine, and broader retail). Our initial focus is the $4.6B alc bev subset.</p>
+
+            <div class="highlight-box">
+                <p>The bottleneck is not demand for POS solutions. The bottleneck is clients' willingness to move from incumbent vendors. We move them by being better and cheaper, and by building a network they can't ignore.</p>
+            </div>
+        </section><script>
+/* JS from brandhub (Strategy) */
+
+// Smooth scroll navigation
+        document.querySelectorAll('nav.sidebar a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    updateActiveNav();
+                }
+            });
+        });
+
+        // Update active nav on scroll
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav.sidebar a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+
+        // Fade-in animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(element => {
+            observer.observe(element);
+        });
+</script></body></html>
