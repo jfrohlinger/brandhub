@@ -1,0 +1,5 @@
+/pernod/*
+  Basic-Auth: pernod:pernodbrandhub
+
+/proximo/*
+  Basic-Auth: proximo:proximobrandhub
